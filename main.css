@@ -1,0 +1,100 @@
+/* Reset & Base Styles */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'M PLUS Rounded 1c',sans-serif;line-height:1.7;color:#fff;background:radial-gradient(circle at 30% 20%,#1b2d6b 0%,#0c1445 70%,#060b2e 100%) fixed;}
+a{color:#0066cc;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* Container & Section */
+main,section{max-width:900px;margin:0 auto;padding:40px 20px;}
+section+section{margin-top:40px;}
+
+h1,h2,h3{font-weight:700;text-align:center;line-height:1.3;}
+h2{margin-bottom:20px;}
+
+/* Header */
+header{position:relative;height:60vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;}
+
+/* slideshow images */
+.header-images{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+.header-images img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 25s infinite;}
+.header-images img:nth-child(1){animation-delay:0s;}
+.header-images img:nth-child(2){animation-delay:5s;}
+.header-images img:nth-child(3){animation-delay:10s;}
+.header-images img:nth-child(4){animation-delay:15s;}
+.header-images img:nth-child(5){animation-delay:20s;}
+@keyframes fade{0%{opacity:0}8%{opacity:1}20%{opacity:1}28%{opacity:0}100%{opacity:0}}
+
+/* Title block */
+.header-content{position:relative;z-index:2;background:rgba(0,0,0,.5);padding:20px 30px;border-radius:8px;max-width:90%;}
+.header-content h1{font-size:clamp(1.5rem,4vw,2.4rem);color:#ffc107;}
+.header-content p{margin-top:10px;font-size:1rem;color:#fff;}
+
+/* Countdown (Exciting) */
+#countdown{position:relative;text-align:center;background:linear-gradient(135deg,#331d71,#512aa8);color:#fff;padding:40px 25px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.5);overflow:hidden;}
+#countdown::before,#countdown::after{content:"";position:absolute;width:140%;height:140%;background:radial-gradient(circle,rgba(255,255,255,0.2) 0%,transparent 60%);animation:pulse 6s infinite;}
+#countdown::before{top:-60%;left:-20%;}
+#countdown::after{bottom:-60%;right:-20%;animation-delay:3s;}
+@keyframes pulse{0%{transform:scale(0);}50%{transform:scale(1);}100%{transform:scale(0);}}
+#countdown h3{color:#ffd54f;margin-bottom:20px;font-size:clamp(1.2rem,3vw,1.6rem);text-shadow:2px 2px 4px rgba(0,0,0,0.5);} 
+#timer{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+#timer span{display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);border:2px solid #ffd54f;border-radius:10px;min-width:70px;padding:10px 8px;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:700;animation:bounce 1.5s infinite alternate;} 
+#timer span:nth-child(even){animation-delay:.75s;}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+#timer span::after{content:attr(data-label);font-size:.65rem;font-weight:400;margin-top:4px;letter-spacing:.05em;}
+
+/* Reserve Button */
+.btn-reserve{display:block;max-width:420px;margin:30px auto;background:#ff6b00;color:#fff;padding:18px 25px;border-radius:50px;font-weight:700;text-align:center;transition:background .25s,transform .25s;}
+.btn-reserve:hover{background:#ff8800;transform:translateY(-3px);}
+
+/* Responsive map */
+#map iframe{width:100%;height:450px;border:0;border-radius:8px;}
+
+/* Night Sky & Shooting Stars */
+.night{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:-1;}
+.shooting_star{position:absolute;top:-2px;left:50%;width:2px;height:80px;background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0));border-radius:50%;animation:shoot 4s linear infinite;}
+@keyframes shoot{0%{transform:translateX(0) translateY(0) rotate(45deg);opacity:1;}100%{transform:translateX(-600px) translateY(600px) rotate(45deg);opacity:0;}}
+.shooting_star:nth-child(2){left:30%;animation-delay:1s;}
+.shooting_star:nth-child(3){left:70%;animation-delay:2s;}
+.shooting_star:nth-child(4){left:20%;animation-delay:3s;}
+.shooting_star:nth-child(5){left:80%;animation-delay:1.5s;}
+
+/* Gallery */
+.gallery-container{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
+.gallery-container img{width:100%;max-width:200px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.4);transition:transform .3s,box-shadow .3s;}
+.gallery-container img:hover{transform:scale(1.08);box-shadow:0 8px 20px rgba(0,0,0,0.6);} 
+
+/* Section Cards */
+section{background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.3);} 
+section h2{color:#ffc107;text-shadow:2px 2px 4px rgba(0,0,0,0.6);border:none;margin-bottom:25px;position:relative;}
+section h2::after{content:'';position:absolute;left:50%;bottom:-8px;width:80px;height:3px;background:#ffc107;transform:translateX(-50%);border-radius:2px;}
+
+/* List Styling (general) */
+ul{list-style:none;padding-left:0;}
+ul li{position:relative;padding-left:30px;margin-bottom:12px;}
+ul li::before{content:"★";position:absolute;left:0;top:0;color:#ffc107;}
+
+/* Details Section Cards */
+#details ul li{background:rgba(0,0,0,0.35);border-left:5px solid #ff9100;padding:14px 18px 14px 58px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.35);transition:transform .25s,box-shadow .25s;}
+#details ul li:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.55);} 
+#details ul li::before{content:"🎇";font-size:1.4rem;left:18px;top:50%;transform:translateY(-50%);color:#ffd54f;} 
+#details ul li strong{color:#ffd54f;}
+
+/* Updated Reserve Button for Fireworks Theme */
+.btn-reserve{background:linear-gradient(45deg,#ff9100,#ffcc00);box-shadow:0 4px 15px rgba(255,193,7,0.4);} 
+.btn-reserve:hover{background:linear-gradient(45deg,#ffb300,#ffd54f);} 
+
+/* Floating Reserve Button */
+.floating-reserve-btn{position:fixed;bottom:20px;right:20px;z-index:1000;display:flex;align-items:center;gap:12px;padding:14px 24px;background:linear-gradient(45deg,#ff9100,#ffcc00);color:#fff;border-radius:50px;box-shadow:0 6px 18px rgba(0,0,0,0.4);animation:floatIn .8s ease-out forwards;transform:translateY(120%);}
+@keyframes floatIn{to{transform:translateY(0);}}
+.floating-reserve-btn a{color:#fff;font-weight:700;white-space:nowrap;}
+.floating-reserve-btn .close-btn{background:transparent;border:none;color:#fff;font-size:1.4rem;cursor:pointer;opacity:0.8;transition:opacity .2s;}
+.floating-reserve-btn .close-btn:hover{opacity:1;}
+.floating-reserve-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,0.55);} 
+@media(max-width:600px){.floating-reserve-btn{right:10px;left:10px;justify-content:center;padding:12px 20px;}}
+
+
+/* Footer */
+footer{text-align:center;background:#333;color:#fff;padding:40px 20px;margin-top:60px;}
+footer .sns-links a{color:#fff;font-size:1.8rem;margin:0 10px;transition:color .2s,transform .2s;}
+footer .sns-links a:hover{color:#ffc107;transform:scale(1.15);}

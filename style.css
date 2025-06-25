@@ -33,45 +33,39 @@ h2 {
 header {
     position: relative;
     height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     overflow: hidden;
     color: white;
 }
 
-.header-fireworks {
+.header-images {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    z-index: 1;
 }
 
-.header-fireworks li {
+.header-images img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center center;
+    object-fit: cover;
     opacity: 0;
-    animation: fireworks-fade 25s linear infinite;
+    animation: image-fade 25s linear infinite;
 }
 
 /* アニメーションの遅延を設定 */
-.header-fireworks li:nth-child(1) { background-image: url('images/LINE_ALBUM_花火大会_250620_1.jpg'); animation-delay: 0s; }
-.header-fireworks li:nth-child(2) { background-image: url('images/LINE_ALBUM_花火大会_250620_2.jpg'); animation-delay: 5s; }
-.header-fireworks li:nth-child(3) { background-image: url('images/LINE_ALBUM_花火大会_250620_3.jpg'); animation-delay: 10s; }
-.header-fireworks li:nth-child(4) { background-image: url('images/LINE_ALBUM_花火大会_250620_4.jpg'); animation-delay: 15s; }
-.header-fireworks li:nth-child(5) { background-image: url('images/LINE_ALBUM_花火大会_250620_5.jpg'); animation-delay: 20s; }
+.header-images img:nth-child(1) { animation-delay: 0s; }
+.header-images img:nth-child(2) { animation-delay: 5s; }
+.header-images img:nth-child(3) { animation-delay: 10s; }
+.header-images img:nth-child(4) { animation-delay: 15s; }
+.header-images img:nth-child(5) { animation-delay: 20s; }
 
-@keyframes fireworks-fade {
+@keyframes image-fade {
     0% { opacity: 0; transform: scale(1); }
     10% { opacity: 1; }
     20% { opacity: 1; }
@@ -80,11 +74,16 @@ header {
 }
 
 .header-content {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
     background: rgba(0, 0, 0, 0.5);
     padding: 20px 40px;
     border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
 }
 
 /* メインコンテンツ */
@@ -121,6 +120,13 @@ section {
 .gallery-container img:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 地図 */
+#map iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
 }
 
 /* 詳細・アクセスリスト */
