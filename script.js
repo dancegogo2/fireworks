@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                const anim = entry.target.dataset.animate || 'fade-up';
+                entry.target.classList.add('in-view', anim);
                 observer.unobserve(entry.target); // 一度表示されたら監視を解除
             }
         });
@@ -46,6 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // ギャラリー横スクロールナビゲーション
+    const galleryContainer=document.querySelector('.gallery-container');
+    const prevBtn=document.querySelector('.gallery-btn.prev');
+    const nextBtn=document.querySelector('.gallery-btn.next');
+    if(galleryContainer&&prevBtn&&nextBtn){
+        const scrollOne=()=>galleryContainer.clientWidth+15;
+        prevBtn.addEventListener('click',()=>{
+            galleryContainer.scrollBy({left:-scrollOne(),behavior:'smooth'});
+        });
+        nextBtn.addEventListener('click',()=>{
+            galleryContainer.scrollBy({left:scrollOne(),behavior:'smooth'});
+        });
+    }
 
     // フローティングボタンを閉じる処理
     const floatingBtn = document.querySelector('.floating-reserve-btn');
