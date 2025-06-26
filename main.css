@@ -82,14 +82,16 @@ ul li::before{content:"★";position:absolute;left:0;top:0;color:#ffc107;}
 
 /* Details Section Cards */
 #details ul{margin-bottom:32px;}
-#details ul li{background:rgba(0,0,0,0.45);border-left:6px solid #ff9100;padding:18px 24px 18px 72px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.4);transition:transform .25s,box-shadow .25s;margin-bottom:20px;}
+#details ul li{background:rgba(0,0,0,0.45);border-left:6px solid #ff9100;padding:18px 24px 18px 56px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.4);transition:transform .25s,box-shadow .25s;margin-bottom:20px;}
 #details ul li:nth-child(odd){background:rgba(255,255,255,0.05);} 
 #details ul li:nth-child(even){background:rgba(255,255,255,0.1);}
 /* Border color variations by category */
 #details h3:nth-of-type(1)+ul li{border-left-color:#ff9100;} /* オレンジ */
 #details h3:nth-of-type(2)+ul li{border-left-color:#4caf50;} /* グリーン */
 #details h3:nth-of-type(3)+ul li{border-left-color:#2196f3;} /* ブルー */
-/* Remove icon before schedule times */
+/* Remove icon before event & merits & schedule lists */
+#details h3:nth-of-type(1)+ul li::before,
+#details h3:nth-of-type(2)+ul li::before,
 #details h3:nth-of-type(3)+ul li::before{display:none;}
 #details ul li:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.55);} 
 #details ul li::before{content:"🎇";font-size:1.6rem;left:26px;top:50%;transform:translateY(-50%);color:#ffd54f;} 
